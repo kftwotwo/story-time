@@ -4,6 +4,7 @@
   <h2><%= @story.title %></h2>
   <small> <%= time_ago_in_words(@story.created_at)  %> ago</small>
   <small><%= link_to "Edit", edit_user_story_path(@story) %></small>
+  <%= link_to "Delete", user_story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %>
 
 
   <% @posts.each do |post| %>

@@ -28,6 +28,15 @@ class StoriesController < ApplicationController
       end
   end
 
+  def destroy
+     @story = Story.find(params[:id])
+     story_posts = Post.where('story_id' => @story.id)
+     story_posts.each do |post|
+       post.destroy
+     end
+     @story.destroy
+     redirect_to user_stories_path
+   end
 
   def show
     @story = Story.find_by_id(params[:id])
