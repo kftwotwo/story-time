@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_action :require_user, only: [:index, :show]
+
   def new
   end
 
