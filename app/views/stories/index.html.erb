@@ -1,2 +1,8 @@
 <h1>Stories#index</h1>
 <p>Find me in app/views/stories/index.html.erb</p>
+
+<% @stories.each do |story| %>
+  <div class="btn">
+    <h3><%= link_to story.title, user_story_path(current_user.id,story.id) %></h3>
+  </div>
+<% end %>

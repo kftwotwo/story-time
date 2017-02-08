@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
    get 'login' => 'sessions#new'
    post 'login' => 'sessions#create'
-   root 'stories#show'
+   root 'stories#index'
    delete 'logout' => 'sessions#destroy'
 end
