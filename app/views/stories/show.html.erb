@@ -2,7 +2,7 @@
 
   <img src="<%= @story.url %>" />
   <h2><%= @story.title %></h2>
-  <small> <%= time_ago_in_words(@story.created_at)  %> ago</small>
+  <small> <%= time_ago_in_words(@story.created_at) %> ago</small>
   <small><%= link_to "Edit", edit_user_story_path(@story) %></small>
   <%= link_to "Delete", user_story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %>
 
@@ -10,8 +10,10 @@
   <% @posts.each do |post| %>
       <img src="<%= post.url %>" />
       <h1><%= post.sentence %><h1/>
-        <small> <%= time_ago_in_words(post.created_at)  %> ago</small>
-
+        <small> <%= time_ago_in_words(post.created_at) %> ago</small>
+        <small> by <%= User.find(post.user_id).first_name %></small>
+        <small><%= link_to "Edit", edit_story_post_path(@story, post.id) %></small>
+        <%= link_to "Delete", story_post_path(@story, post.id), :data => {:confirm => "You sure?", :method => "delete"} %>
         <br>
   <% end %>
 

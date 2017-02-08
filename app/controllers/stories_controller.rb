@@ -45,7 +45,8 @@ class StoriesController < ApplicationController
   end
 
   def index
-      @stories = Story.where('user_id' => current_user.id)
+      @stories = Story.all
+      # @stories = Story.where('user_id' => current_user.id)
   end
 
   private
