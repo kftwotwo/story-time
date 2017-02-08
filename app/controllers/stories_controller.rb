@@ -8,7 +8,6 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     @story[:user_id]= current_user.id
-    p "new story", @story
     if @story.save
       redirect_to user_stories_path
     else
@@ -17,13 +16,21 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @story = Story.find(params[:id])
+  end
 
+  def update
+    @story= Story.find(params[:id])
+      if @story.update(story_params)
+        redirect_to user_story_path(@story.id)
+      else
+        render :edit
+      end
   end
 
 
   def show
     @story = Story.find_by_id(params[:id])
-    p @story, "asdfasdfasdf"
     @posts = Post.where('story_id' => @story.id)
     @post = Post.new
   end
