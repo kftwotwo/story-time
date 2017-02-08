@@ -1,2 +1,16 @@
-<h1>Stories#show</h1>
-<p>Find me in app/views/stories/show.html.erb</p>
+<div class="center">
+
+  <img src="<%= @story.url %>" />
+  <h2><%= @story.title %></h2>
+
+
+  <% @posts.each do |post| %>
+      <img src="<%= post.url %>" />
+      <h1><%= post.sentence %><h1/>
+        <small> <%= time_ago_in_words(post.created_at)  %> ago</small>
+        <br>
+  <% end %>
+
+<h5>Continue the story with a new sentence:</h5>
+  <%= render "posts/form" %>
+</div>
