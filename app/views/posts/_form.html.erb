@@ -1,9 +1,10 @@
 <%= render "layouts/errors", :object => @post %>
 
+<img src=" <%= @url %> " alt="" />
+
 <%= form_for [@story, @post] do |f| %>
+  <%= f.hidden_field :url, :value => @url %>
   <%= f.label :sentence %>
   <%= f.text_field :sentence %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
   <%= f.submit %>
 <% end %>

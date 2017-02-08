@@ -3,6 +3,9 @@ class StoriesController < ApplicationController
 
   def new
     @story = Story.new
+    a = rand(300..600)
+    b = rand(300..600)
+    @url ="https://unsplash.it/"+a.to_s+"/"+b.to_s
   end
 
   def create
@@ -39,6 +42,9 @@ class StoriesController < ApplicationController
    end
 
   def show
+    a = rand(300..600)
+    b = rand(300..600)
+    @url ="https://unsplash.it/"+a.to_s+"/"+b.to_s
     @story = Story.find_by_id(params[:id])
     @posts = Post.where('story_id' => @story.id)
     @post = Post.new
