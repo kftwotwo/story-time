@@ -57,14 +57,12 @@ class StoriesController < ApplicationController
   end
   def upvote
     @story = Story.find_by_id(params[:story_id])
-    @story.votes = @story.votes + 1
-    @story.update(votes: @story.votes)
+    @story.liked_by current_user
     redirect_to user_story_path(current_user.id,@story.id)
   end
   def downvote
     @story = Story.find_by_id(params[:story_id])
-    @story.votes = @story.votes - 1
-    @story.update(votes: @story.votes)
+    @story.unliked_by current_user  
     redirect_to user_story_path(current_user.id,@story.id)
   end
 

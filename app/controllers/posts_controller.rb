@@ -17,11 +17,14 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @story = Story.find(params[:story_id])
+    @url = @post.url
   end
 
   def update
     @story = Story.find(params[:story_id])
     @post= Post.find(params[:id])
+    @url = @post.url
+
       if @post.update(post_params)
         redirect_to user_story_path(current_user.id, @story.id)
       else

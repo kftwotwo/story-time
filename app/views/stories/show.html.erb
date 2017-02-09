@@ -12,7 +12,7 @@
             <small> by <%= User.find(@story.user_id).first_name %></small>
           </div>
           <div class="card-action">
-            <div class="chip"><%= @story.votes %> Likes</div>
+            <div class="chip"><%= @story.votes_for.size%> Likes</div>
 
             <%= link_to "Edit", edit_user_story_path(@story) %>
             <%= link_to "Delete", user_story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %>
