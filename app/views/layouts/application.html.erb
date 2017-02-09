@@ -17,7 +17,7 @@
           <ul>
             <li><%= link_to "New Story", new_user_story_path(current_user) %></li>
             <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-            <li><div class="chip"><img src="https://avatars1.githubusercontent.com/u/20941128?v=3&s=460"><%= current_user.first_name %> <%= current_user.last_name %></div></li>
+            <li><div class="chip"><img src="<%= current_user.picture %>"><%= current_user.first_name %> <%= current_user.last_name %></div></li>
           </ul>
           <% else %>
             <ul>
