@@ -1,10 +1,24 @@
 <%= render "layouts/errors", :object => @post %>
 
-<img src=" <%= @url %> " alt="" />
 
-<%= form_for [@story, @post] do |f| %>
-  <%= f.hidden_field :url, :value => @url %>
-  <%= f.label :sentence %>
-  <%= f.text_field :sentence %>
-  <%= f.submit %>
-<% end %>
+
+
+<div class="card small">
+  <div class="col s12 m7">
+    <div class="card horizontal small">
+      <div class="card-image">
+        <img src=" <%= @url %> " alt="" />
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <%= form_for [@story, @post] do |f| %>
+            <%= f.hidden_field :url, :value => @url %>
+            <%= f.label :sentence %>
+            <%= f.text_field :sentence %>
+            <%= f.submit class: "btn"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

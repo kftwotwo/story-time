@@ -35,9 +35,6 @@ class PostsController < ApplicationController
      redirect_to :back
    end
 
-  def show
-  end
-
   def index
   end
 

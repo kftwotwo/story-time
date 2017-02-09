@@ -9,31 +9,27 @@
   </head>
 
   <body>
-
-    <div class="header">
-      <div class="container">
-        <%= link_to root_path do %>
-          <img src="http://s3.amazonaws.com/codecademy-content/courses/rails-auth/img/fotofoto-logo.svg" width="80" height="80">
-        <% end %>
-
-        <div class="nav pull-right">
+    <nav>
+      <div class="nav-wrapper blue lighten-3">
+        <%= link_to 'Story Time', root_path, class: "brand-logo" %>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if current_user %>
-            <ul>
-              <li><%= current_user.email %></li>
-              <li><%= link_to "New Story", new_user_story_path(current_user), class: 'btn btn-success' %></li>
-              <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-            </ul>
+          <ul>
+            <li><%= link_to "New Story", new_user_story_path(current_user) %></li>
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+            <li><div class="chip"><img src="https://avatars1.githubusercontent.com/u/20941128?v=3&s=460"><%= current_user.first_name %> <%= current_user.last_name %></div></li>
+          </ul>
           <% else %>
             <ul>
               <li><%= link_to "Login", 'login' %></a></li>
               <li><%= link_to "Signup", 'signup' %></a></li>
             </ul>
           <% end %>
-
-        </div>
+        </ul>
       </div>
+    </nav>
+    <div class="container">
+      <%= yield %>
     </div>
-
-    <%= yield %>
   </body>
 </html>
