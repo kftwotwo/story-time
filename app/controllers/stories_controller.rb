@@ -11,6 +11,7 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(story_params)
     @story[:user_id]= current_user.id
+    @story[:votes]= 0;
     if @story.save
       redirect_to user_stories_path
     else
@@ -53,6 +54,18 @@ class StoriesController < ApplicationController
   def index
       @stories = Story.all
       # @stories = Story.where('user_id' => current_user.id)
+  end
+  def upvote
+    @story = Story.find_by_id(params[:story_id])
+    @story.votes = @story.votes + 1
+    @story.update(votes: @story.votes)
+    redirect_to user_story_path(current_user.id,@story.id)
+  end
+  def downvote
+    @story = Story.find_by_id(params[:story_id])
+    @story.votes = @story.votes - 1
+    @story.update(votes: @story.votes)
+    redirect_to user_story_path(current_user.id,@story.id)
   end
 
   private

@@ -12,8 +12,14 @@
             <small> by <%= User.find(@story.user_id).first_name %></small>
           </div>
           <div class="card-action">
+            <div class="chip"><%= @story.votes %> Likes</div>
+
             <%= link_to "Edit", edit_user_story_path(@story) %>
             <%= link_to "Delete", user_story_path(@story), :data => {:confirm => "You sure?", :method => "delete"} %>
+            <div class="right-align">
+              <%= link_to "",  story_upvote_path(@story), class: 'btn-large waves-effect waves-teal btn-floating btn-flat fa fa-thumbs-o-up fa-3x' %>
+              <%= link_to "",  story_downvote_path(@story), class: 'btn-large waves-effect waves-red btn-floating btn-flat fa fa-thumbs-o-down fa-3x' %>
+            </div>
           </div>
         </div>
       </div>
