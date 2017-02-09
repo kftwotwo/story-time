@@ -9,7 +9,7 @@
           <span class="card-title">By <%= User.find(story.user_id).first_name %> <%= User.find(story.user_id).last_name %><small class="right-align"> <%= time_ago_in_words(story.created_at) %> ago</small></span>
         </div>
         <div class="card-action">
-          <p><%= link_to story.title, user_story_path(current_user.id,story.id) %></p>
+          <p><span class="badge"> <%=story.posts.all.count %> Posts</span><%= link_to story.title, user_story_path(current_user.id,story.id) %></p>
         </div>
       </div>
     </div>
