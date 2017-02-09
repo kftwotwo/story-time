@@ -19,6 +19,9 @@ $ rake db:test:prepare
 $ rails s
 ```
 URL: localhost:3000
+
+## Deploy
+If you would like to deploy it click [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/kftwotwo/story-time)
 ## Known Bugs
 
 If you notice any bugs or problems you can fill out an issue [here](http://www.github.com/kftwotwo/story-time/issues) or feel free to submit a pull request.
